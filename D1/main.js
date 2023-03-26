@@ -200,12 +200,79 @@ function highestEvenNumber(arr) {
 console.log(highestEvenNumber(arr5));
 
 // 15. Crea una funzione per controllare che due numeri (passati come parametri) siano uno positivo e uno negativo. Ritorna `true` se la condizione è applicata, `false` se non lo è.
+
+function checkNumbers(first, second) {
+  if ((first > 0 && second < 0) || (first < 0 && second > 0)) {
+    console.log(true)
+  } else {
+    console.log(false)
+  }
+}
+checkNumbers(-1, 4)
+
+
 // 16. Crea una funzione per creare e ritornare una nuova stringa che abbia i primi tre caratteri in minuscolo e gli altri in maiuscolo. Se la stringa è più corta di tre caratteri, tutta la stringa deve essere in maiuscolo. La stringa originale deve essere passata come parametro.
+
+function newString2(str) {
+  if (str.length < 3) {
+    console.log(str.toUpperCase()) 
+  } else {
+    let firstThree = str.slice(0, 3).toLowerCase()
+    let elem = str.slice(3).toUpperCase()
+    console.log(firstThree + elem)
+  }
+}
+newString2("Ciao a tutti!")
+
 // 17. Crea una funzione che calcoli la somma di due numeri passati come parametri. Se la loro somma è compresa tra 50 e 80, ritorna `65`, altrimenti ritorna `80`.
+
+function sumNumber2(x, y) {
+  const sum = x + y
+  if (sum > 50 && sum < 80) {
+    elem = 65
+  } else {
+    elem = 80
+  }
+  console.log(elem);
+}
+sumNumber2(3, 50)
+
+
 // 18. Crea una funzione per convertire un numero (passato come parametro) in una stringa basandoti su questi criteri:
 // Il numero è divisibile per 3 ⇒ ritorna “Diego”
 // Il numero è divisibile per 5 ⇒ ritorna “Riccardo”
 // Il numero è divisibile per 7 ⇒ ritorna “Stefano”
 // Se il numero non ha 3, 5 o 7 come divisore, ritorna il numero originale.
 // ⚠️ Se il numero è divisibile per più di una di queste opzioni, ritorna l’unione delle due stringhe. Es. 15 è divisibile per 3 e per 5, quindi il valore ritornato sarebbe “DiegoRiccardo”.
+
+function convertNumber(num) {
+  let elem = ""
+  if (num % 3 === 0) {
+    elem += "Diego"
+  }
+  if (num % 5 === 0) {
+    elem += "Riccardo"
+  }
+  if (num % 7 === 0) {
+    elem += "Stefano"
+  }
+  if (elem ==="") {
+    elem = num.toString()
+  }
+  console.log(elem);
+}
+convertNumber(15)
+
+
 // 19. Crea una funzione che crei un acronimo a partire da una frase. Es. “Fabbrica Italiana Automobili Torino” deve ritornare “FIAT”.
+
+function makeAcronym(str) {
+  const words = str.split(" ")
+  const firstLetter = words.map(function(elem) {
+    return elem.charAt(0).toUpperCase()
+  })
+  const acronym = firstLetter.join("")
+  console.log(acronym);
+}
+
+makeAcronym("Ciao Epicode, siamo a metà corso!")
