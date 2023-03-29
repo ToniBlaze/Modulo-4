@@ -9,11 +9,11 @@ async function fetchData(url, sectionId) {
         let card = `
             <div class="col mb-4">
               <div class="card">
-                <img src="${song.album.cover_medium}" class="card-img-top img-fluid" alt="${song.album.title}">
+                <img src="${song.album.cover_medium}" class="card-img-top img-fluid w-100" alt="${song.album.title}">
                 <div class="card-body">
                   <h5 class="card-title">${song.album.title}</h5>
                   <p class="card-text">${song.artist.name}</p>
-                  <p class="card-text">${song.album.title}</p>
+                  <p class="card-text albumTitle">${song.album.title}</p>
                 </div>
               </div>
             </div>`;
@@ -51,3 +51,16 @@ function showsTitle() {
     ul.appendChild(li);
   });
 }
+
+function countAlbum() {
+	const albumtitles = [];
+	document.querySelectorAll(".albumTitle").forEach(elem => {
+		const title = elem.innerText
+		if (!albumtitles.includes(title)) {
+			albumtitles.push(title);
+			console.log(title)
+		}	
+	})
+	alert(`numero di album unici: ${albumtitles.length}`)
+}
+
