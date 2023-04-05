@@ -21,3 +21,15 @@
     transform: scale(1);
   }
 }
+
+.modal-dialog,
+.modal-content,
+.modal-body {
+  width: 50vw;
+}
+
+.cartProduct {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

@@ -35,8 +35,14 @@ function insertImg(results) {
   prices.forEach((elem, i) => {
     elem.innerHTML = "Price: " + "<b>" + results[i].price + "€" + "</b>";
   });
+
+  const cardsAsin = document.querySelectorAll(".card")
+  cardsAsin.forEach((elem, i) => {
+    elem.id = results[i].asin
+  })
 }
 
+// funzione per nascondere Card 
 function HideElement() {
   const hideButtons = document.querySelectorAll(".hide");
   hideButtons.forEach((elem) => {
@@ -48,28 +54,72 @@ function HideElement() {
 }
 HideElement();
 
+let cartArray = [];
 function AddToCart() {
+
   const AddToCartButtons = document.querySelectorAll(".add-to-cart");
   AddToCartButtons.forEach((elem) => {
     elem.addEventListener("click", function (event) {
       let cards = event.target.closest(".card");
       cards.classList.add("selected");
+      
 
-      // //AGGIUNGI AL CARRELLO
-      // let image = cards.querySelector("img").src;
-      // let titolo = cards.querySelector(".card-title").innerText;
-      // let categorie = cards.querySelector(".book-category").innerText;
-      // let asinNr = cards.querySelector(".book-asin").innerText;
-      // let bookPrice = cards.querySelector(".book-price").innerText;
+      //AGGIUNGI AL CARRELLO
+      let image = cards.querySelector("img").src;
+      let titolo = cards.querySelector(".card-title").innerText;
+      let asinNr = cards.querySelector(".book-asin").innerText;
+      let bookPrice = cards.querySelector(".book-price").innerText;
 
-      // const carrello = document.getElementById("cart");
-      // let col = document.createElement("div");
-      // col.classList.add("------");
-      // col.innerHTML = 
+      if (!cartArray.includes(asinNr)) {
 
-      // AGGIUNGERE ELEMENTI AL CARRELLO
-      // NON FUNZIONA DA MODIFICARE
+        cartArray.push(asinNr);
+        console.log(cartArray);
+
+        const carrello = document.getElementById("cart");
+        let col = document.createElement("div");
+        col.classList.add("col");
+        col.classList.add("cartProduct");
+        col.innerHTML = `
+        <div>
+          <img src="${image}" style="height:65px; width:65px">
+        </div>
+        <div>
+          <h6>${titolo}</h6>
+          <p class="asin">${asinNr} </p>
+        </div>
+        <div>
+          <span>${bookPrice}</span>
+        </div>
+        <div>
+          <a href="#" class="trash-button"><i class="fa-solid fa-trash-can"></i></a>
+        </div>`;
+
+        carrello.appendChild(col);
+      } else {
+        alert("Articolo gia nel carrello");
+      }
+
+      removeBook();
     });
   });
 }
 AddToCart();
+
+// Funzione per rimuovere libro singolo da carello
+function removeBook() {
+  const trashButtons = document.querySelectorAll(".trash-button");
+
+  trashButtons.forEach((elem) => {
+    elem.addEventListener("click", function (event) {
+      let buttons = event.target.closest(".cartProduct");
+      buttons.remove();
+
+      let asinNumber = buttons.querySelector(".asin").innerText
+      asinNumber = asinNumber.split(" ")[1]
+      document.getElementById(asinNumber).classList.remove("selected")
+      let index = cartArray.findIndex(elem => elem == "Asin: " + asinNumber);
+      cartArray.splice(index, 1)
+      console.log(index);
+    });
+  });
+}
