@@ -1,0 +1,15 @@
+body {
+    background-color: rgb(241, 241, 241);
+}
+
+hr {
+    border: solid 2px rgb(95, 95, 95);
+}
+
+td {
+    padding: 20px 8px 0 8px;
+}
+
+table {
+    margin: 0;
+}
