@@ -29,33 +29,25 @@
     <!-- FILTRI  -->
     <div class="container-fluid mb-5">
         <div class="row">
-            <div class="col-12 d-flex justify-content-between">
+            <div class="col-12 d-flex justify-content-center align-items-center">
 
                 <!-- Dropdown -->
-                <div class="dropdown col-2 text-center">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Choose one
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Email</a></li>
-                        <li><a class="dropdown-item" href="#">Username</a></li>
-                        <li><a class="dropdown-item" href="#">Name</a></li>
-                    </ul>
+                <div class="form-group d-flex mx-4">
+                    <label for="filter">Filter by:</label>
+                    <select id="filter" class="form-control">
+                        <option value="name">Name</option>
+                        <option value="username">Username</option>
+                        <option value="email">Email</option>
+                    </select>
                 </div>
 
-                <!--                input filtro -->
+                <!-- input filtro -->
                 <div class="col-6 text-center">
                     <div class="input-group">
                         <span class="input-group-text" id="inputGroup-sizing-default">Cerca:</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input"
+                        <input id="input-search" type="text" class="form-control" aria-label="Sizing example input"
                             aria-describedby="inputGroup-sizing-default">
                     </div>
-                </div>
-
-
-                <div class="col-2 text-center">
-                    <button type="button" class="btn btn-info">Crea lista nomi</button>
                 </div>
 
             </div>
@@ -67,15 +59,33 @@
     <!-- TABELLA -->
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 w-100 text-center my-3 pb-5 px-1 d-flex justify-content-center" id="table"></div>
+            <div class="col-12 w-100 text-center my-3 pb-5 px-1 d-flex justify-content-center" id="table">
+
+            </div>
         </div>
     </div>
 
+    <!-- Bottone per creara lista nomi -->
+    <div class="col-2 text-center">
+        <button onclick="createNameList()" type="button" class="btn btn-info">Crea lista nomi</button>
+    </div>
+    <div>
+        <ul class="justify-content-center mx-5 my-3 nameList">
+            <!-- QUI CI ANDRA LA LISTA NOMI -->
+        </ul>
+    </div>
 
+    <div style="height: 40px;"></div>
 
-
-
-
+    <!-- Bottone per creara lista nomi -->
+    <div class="col-2 text-center">
+        <button onclick="createAddressList()" type="button" class="btn btn-secondary">Crea lista Indirizzi</button>
+    </div>
+    <div>
+        <ul class="justify-content-center mx-5 my-3 addressList">
+            <!-- QUI CI ANDRA LA LISTA INDIRIZZI -->
+        </ul>
+    </div>
 
 
     <script src="bootstrap5.3/js/bootstrap.js"></script>
