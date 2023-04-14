@@ -1,9 +1,60 @@
 {
-    "posts": [
-      { "id": 1, "title": "json-server", "author": "typicode" }
-    ],
-    "comments": [
-      { "id": 1, "body": "some comment", "postId": 1 }
-    ],
-    "profile": { "name": "typicode" }
-  }
+  "products": [
+    {
+      "id": 1,
+      "name": "3310 cellphone",
+      "description": "An unforgettable icon.",
+      "brand": "Nokia",
+      "imageUrl": "https://bit.ly/3CExjRa",
+      "price": 100
+    },
+    {
+      "name": "Moto G3343",
+      "description": "una vecchio telefono",
+      "brand": "Motorola",
+      "imageUrl": "https://2.bp.blogspot.com/-OlCfnAmqpeY/U7LAogsONEI/AAAAAAAAHWI/EA3OUwyacnY/s1600/motorola+moto+g+google+play+edition.png",
+      "price": "200",
+      "id": 3
+    },
+    {
+      "name": "A53",
+      "description": "Telefono fascia media",
+      "brand": "Samsung",
+      "imageUrl": "https://leganerd.com/wp-content/uploads/2022/06/Samsung-Galaxy-A53-5G-1.jpg",
+      "price": "300",
+      "id": 4
+    },
+    {
+      "name": "HTC 3555",
+      "description": "New HTC phone",
+      "brand": "HTC",
+      "imageUrl": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimgk.timesnownews.com%2Fstory%2F1555054677-HTC_U12_Life_India.jpg&f=1&nofb=1&ipt=26bb8679fc694a97748b3138e2bb0c3f15d5b15efb3f85013aacf6380bfdedec&ipo=images",
+      "price": "400",
+      "id": 5
+    },
+    {
+      "name": "Iphone 14",
+      "description": "Best 2022 phone",
+      "brand": "Apple",
+      "imageUrl": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.mobilepagla.com%2Fwp-content%2Fuploads%2F2021%2F05%2FApple-iPhone-14-Pro-Max-500x500.jpg&f=1&nofb=1&ipt=982f7767df9717cc0f05b3c0e3e6fa1d1a62310a2ffda19d5ddf7e042b258a39&ipo=images",
+      "price": "900",
+      "id": 6
+    },
+    {
+      "name": "Xiaomi 12",
+      "description": "Chinese phone",
+      "brand": "Xiamoi",
+      "imageUrl": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fxitekno.com%2Fwp-content%2Fuploads%2F2021%2F06%2FXiaomi-Mi-12.jpg&f=1&nofb=1&ipt=8a39f2d2b958079058cc69309aeca455f5f52589121dd195da25d7264d1062f9&ipo=images",
+      "price": "460",
+      "id": 7
+    },
+    {
+      "name": "S23 plus",
+      "description": "Best phone 2023",
+      "brand": "Samsung",
+      "imageUrl": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Freview-plus.com%2Fwp-content%2Fuploads%2F2022%2F12%2FSamsung-Galaxy-S23-Plus-Review-plus-2.jpg&f=1&nofb=1&ipt=78c9b76ff082b2b07277aeadedd53cca66433460dc78f7b4cb872f47a40c4457&ipo=images",
+      "price": "1000",
+      "id": 8
+    }
+  ]
+}
