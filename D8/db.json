@@ -1,0 +1,12 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "3310 cellphone",
+      "description": "An unforgettable icon.",
+      "brand": "Nokia",
+      "imageUrl": "https://bit.ly/3CExjRa",
+      "price": 100
+    }
+  ]
+}
