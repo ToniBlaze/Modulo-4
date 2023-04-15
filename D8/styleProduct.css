@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(219, 219, 219);
+}
+nav {
+  background-color: rgb(88, 147, 255);
+}
+
+h1 {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 85px;
+}
+
+b {
+  font-size: 80px;
+  font-weight: 800;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(12, 177, 48);
+}
+
+@keyframes spin {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.5) rotate(0deg);
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+#pricelabel {
+  animation: spin 2s linear infinite ;
+  width: fit-content;
+}
+

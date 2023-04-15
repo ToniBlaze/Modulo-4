@@ -23,7 +23,7 @@ async function getToken() {
 
     // RIMUOVI SPINNER
     spinnerContainer.classList.add("d-none");
-
+    
   } catch (error) {
     console.log("Errore nel recupero degli utenti: ", error);
     // RIMUOVI SPINNER
@@ -43,6 +43,7 @@ function displayProducts(products) {
 
   products.forEach((elem) => {
     let card = `
+      <a href="product.html?id=${elem._id}"
         <div class="card col-3 pt-2 mx-2 mb-5">
             <img src="${elem.imageUrl}" class="card-img-top img-fluid h-100">
             <div class="card-body">
@@ -56,6 +57,7 @@ function displayProducts(products) {
                 </div>
             </div>
         </div>
+      </a>  
     `;
     container.innerHTML += card;
   });
