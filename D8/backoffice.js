@@ -13,43 +13,49 @@ let brandInput = document.getElementById("brand");
 let imageUrlInput = document.getElementById("imageUrl");
 let priceInput = document.getElementById("price");
 
-console.log(productIdInput);
 
-// productForm.addEventListener("submit", addProduct);
+// RECUPERARE DATI PRODOTTO:
+//   cosi da capire se c'è ID nelle queries string(quindi modificare) 
+//   oppure è un nuovo prodotto da aggiungere
 
-// AGGIUNTA PRODOTTO (chiamata POST)
+async function getProductData() {
 
-// function addProduct(event) {
-//   event.preventDefault();
+  // Prendi ID da query string
+  const queryStringInfo = new URLSearchParams(window.location.search);
+  const productId = queryStringInfo.get('id')
 
-//   const newProduct = {
-//     name: nameInput.value,
-//     description: descriptionInput.value,
-//     brand: brandInput.value,
-//     imageUrl: imageUrlInput.value,
-//     price: priceInput.value,
-//   };
+ // buildPageTitle(userId)
 
-//   fetch(urlApi, {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//       Authorization:
-//         "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDM2ZjFkMjMzYjE1MjAwMTQ3NjE3OTYiLCJpYXQiOjE2ODEzMjI0NTAsImV4cCI6MTY4MjUzMjA1MH0.BB-aUJ_dMeR8GymLbMs_t8zqwDe9CIIBtBfEKECfvUM",
-//     },
-//     body: JSON.stringify(newProduct),
-//   })
-//     .then((response) => response.json())
-//     .then((data) => {
-//       console.log("Prodotto aggiunto con successo:", data);
-//       window.location.href = "index.html";
-//     })
-//     .catch((error) => {
-//       console.error("Errore durante l'aggiunta del prodotto:", error);
-//     });
-// }
+  if (productId) {
+    
+    productIdInput.value = productId
 
-/////////////////////////////////
+    try {
+      const response = await fetch(`${urlApi}${productId}`, {
+        headers: {
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDM2ZjFkMjMzYjE1MjAwMTQ3NjE3OTYiLCJpYXQiOjE2ODEzMjI0NTAsImV4cCI6MTY4MjUzMjA1MH0.BB-aUJ_dMeR8GymLbMs_t8zqwDe9CIIBtBfEKECfvUM",
+        }
+      });
+      const product = await response.json();
+          
+      productIdInput.value = productId
+      nameInput.value = product.name
+      descriptionInput.value = product.description
+      brandInput.value = product.brand
+      imageUrlInput.value = product.imageUrl
+      priceInput.value = product.price
+    
+      console.log(product);
+      console.log(productIdInput.value);
+  
+    } catch (error) {
+      console.log('Errore nel recupero dati del prodotto: ', error);
+    }
+  }
+}
+getProductData()
+
 
 productForm.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -63,8 +69,13 @@ productForm.addEventListener("submit", async (event) => {
     price: priceInput.value,
   };
 
+  alert(productIdInput.value)
+
   try {
     if (productIdInput.value) {
+      // *******************
+      // ERRORE 404 perche??
+      //******************* 
       const response = await fetch(`${urlApi}${productIdInput.value}`, {
         method: "PATCH",
         headers: {

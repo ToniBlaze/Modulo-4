@@ -1,19 +1,33 @@
 let urlApi = "https://striveschool-api.herokuapp.com/api/product/";
 // let urlApi = "http://localhost:3000/";
 
+// SELEZIONA SPINNER 
+const spinnerContainer = document.querySelector(".spinner-border");
+
 async function getToken() {
   try {
+    // MOSTRA SPINNER
+    spinnerContainer.classList.remove("d-none");
+    
     const response = await fetch(urlApi, {
       headers: {
         Authorization:
           "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDM2ZjFkMjMzYjE1MjAwMTQ3NjE3OTYiLCJpYXQiOjE2ODEzMjI0NTAsImV4cCI6MTY4MjUzMjA1MH0.BB-aUJ_dMeR8GymLbMs_t8zqwDe9CIIBtBfEKECfvUM",
-      },
+      }
     });
     const data = await response.json();
     console.log(data);
+
+    // MOSTRA PRODOTTI
     displayProducts(data);
+
+    // RIMUOVI SPINNER
+    spinnerContainer.classList.add("d-none");
+
   } catch (error) {
     console.log("Errore nel recupero degli utenti: ", error);
+    // RIMUOVI SPINNER
+    spinnerContainer.classList.add("d-none");
   }
 }
 getToken();
