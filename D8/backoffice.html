@@ -18,18 +18,24 @@
 </head>
 
 <body>
-
-    <header>
-        <h1 id="page-title" class="resource-title"></h1>
-        <button class="btn btn-secondary my-3 mx-5" onclick="goBack()">Torna indietro</button>
+    <button class="btn btn-secondary my-3 mx-5" onclick="goBack()">Torna indietro</button>
+    <header class="container">
+        <div class="row">
+            <h1 id="page-title" class="resource-title mt-3"></h1>
+        </div>
     </header>
 
-    <div class="container">
+    <div class="container my-4">
+
+        <!-- SPINNER -->
+        <div class="spinner-border d-none text-primary mb-3 p-3" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
 
         <form id="user-form">
 
             <input type="hidden" id="product-id">
-            
+
             <div class="mb-3">
                 <label for="name" class="form-label">Nome</label>
                 <input type="text" class="form-control" id="name" required>

@@ -1,19 +1,18 @@
 let urlApi = "https://striveschool-api.herokuapp.com/api/product/";
 // let urlApi = "http://localhost:3000/";
 
-// SELEZIONA SPINNER 
+// SELEZIONA SPINNER
 const spinnerContainer = document.querySelector(".spinner-border");
 
 async function getToken() {
   try {
     // MOSTRA SPINNER
     spinnerContainer.classList.remove("d-none");
-    
     const response = await fetch(urlApi, {
       headers: {
         Authorization:
           "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDM2ZjFkMjMzYjE1MjAwMTQ3NjE3OTYiLCJpYXQiOjE2ODEzMjI0NTAsImV4cCI6MTY4MjUzMjA1MH0.BB-aUJ_dMeR8GymLbMs_t8zqwDe9CIIBtBfEKECfvUM",
-      }
+      },
     });
     const data = await response.json();
     console.log(data);
@@ -23,7 +22,6 @@ async function getToken() {
 
     // RIMUOVI SPINNER
     spinnerContainer.classList.add("d-none");
-    
   } catch (error) {
     console.log("Errore nel recupero degli utenti: ", error);
     // RIMUOVI SPINNER
@@ -43,22 +41,23 @@ function displayProducts(products) {
 
   products.forEach((elem) => {
     let card = `
-      <a href="product.html?id=${elem._id}"
         <div class="card col-3 pt-2 mx-2 mb-5">
+          <a class="h-100" href="product.html?id=${elem._id}">
             <img src="${elem.imageUrl}" class="card-img-top img-fluid h-100">
+          
             <div class="card-body">
                 <h5 class="name">${elem.name}</h5>
                 <h6 class="brand">${elem.brand}</h6>
                 <p class="description">${elem.description}</p>
                 <p class="price">Price: <b>${elem.price}$</b></p>
+                </a>
                 <div>
                   <button class="btn btn-primary" onclick="editProduct('${elem._id}')">Modifica</button>
                   <button class="btn btn-danger" onclick="deleteProduct('${elem._id}')">Elimina</button>
                 </div>
             </div>
         </div>
-      </a>  
-    `;
+      `;
     container.innerHTML += card;
   });
 }
@@ -73,7 +72,7 @@ async function deleteProduct(productId) {
           "Content-Type": "application/json",
           Authorization:
             "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDM2ZjFkMjMzYjE1MjAwMTQ3NjE3OTYiLCJpYXQiOjE2ODEzMjI0NTAsImV4cCI6MTY4MjUzMjA1MH0.BB-aUJ_dMeR8GymLbMs_t8zqwDe9CIIBtBfEKECfvUM",
-        }
+        },
       });
       window.location.href = "index.html";
       alert("Prodotto eliminato!");
@@ -85,5 +84,5 @@ async function deleteProduct(productId) {
 
 // MODIFICA PRODOTTO
 function editProduct(productId) {
-  window.location.href = `backoffice.html?id=${productId}`
+  window.location.href = `backoffice.html?id=${productId}`;
 }
