@@ -16,11 +16,12 @@ let priceInput = document.getElementById("price");
 // SELEZIONA SPINNER
 const spinnerContainer = document.querySelector(".spinner-border");
 
+
 // RECUPERARE DATI PRODOTTO:
 //   cosi da capire se c'è ID nelle queries string(quindi modificare)
 //   oppure è un nuovo prodotto da aggiungere
-
 async function getProductData() {
+
   // Prendi ID da query string
   const queryStringInfo = new URLSearchParams(window.location.search);
   const productId = queryStringInfo.get("id");
@@ -51,7 +52,6 @@ async function getProductData() {
 
       // RIMUOVI SPINNER
       spinnerContainer.classList.add("d-none");
-      
     } catch (error) {
       console.log("Errore nel recupero dati del prodotto: ", error);
     }
@@ -70,6 +70,9 @@ function buildPageTitle(productId) {
 
 productForm.addEventListener("submit", async (event) => {
   event.preventDefault();
+
+  const formValid = formValidation();
+  if (!formValid) return;
 
   const newProduct = {
     name: nameInput.value,
@@ -121,3 +124,20 @@ productForm.addEventListener("submit", async (event) => {
     console.log("Si è verificato un errore durante il salvataggio: ", error);
   }
 });
+
+function formValidation() {
+  const imageUrl = document.getElementById("imageUrl");
+  const price = document.getElementById("price");
+
+  if (!imageUrl.value.includes('https:')) {
+    alert('L\'URL dell\'immagine non è valido');
+    return;
+  }
+  
+  if (Number.isNaN(Number(price.value))) {
+    alert('Il prezzo deve contenere solo numeri.');
+    return;
+  }
+
+  return true
+}

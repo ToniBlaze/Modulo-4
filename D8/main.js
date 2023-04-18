@@ -41,7 +41,7 @@ function displayProducts(products) {
 
   products.forEach((elem) => {
     let card = `
-        <div class="card col-3 pt-2 mx-2 mb-5">
+        <div class="card col-12 col-md-5 col-lg-3 pt-2 mx-2 mb-5">
           <a class="h-100" href="product.html?id=${elem._id}">
             <img src="${elem.imageUrl}" class="card-img-top img-fluid h-100">
           

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TABELLA UTENTI - D6 JS Advanced</title>
+    <title>TABELLA UTENTI - D6 JS Advanced</title> 
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
@@ -19,22 +19,33 @@
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar">
-        <div class="container-fluid">
-            <a class="navbar-brand">
-                <h3 class="px-4">Esempio Ecommerce</h3></a>
-            <button class="btn btn-success mx-5" onclick="addProduct()" type="submit">Aggiungi prodotto</button>
+    <nav class="navbar sticky-top">
+        <div class="container d-flex align-items-center justify-content-between text-center">
+            <div class="d-flex align-items-center">
+                <a href="#">
+                    <div class="rounded-circle fs-3 d-flex align-items-center justify-content-center">
+                        <i class="bi bi-phone-flip"></i>
+                    </div>
+                </a>
+                <span class="fs-2 mb-1 ps-2 fw-bold">E-Shop</span>
+            </div>
+            <div>
+                <h4 class="my-0 text-center">Dashboard Admin</h4>
+            </div>
+            <div>
+                <button class="btn btn-success" onclick="addProduct()" type="submit">Aggiungi prodotto</button>
+            </div>
         </div>
     </nav>
 
     <div class="container">
-        <div class="row text-center my-5">
-            <h1>Gestione prodotti</h1>
+        <div class="row text-center my-5 ">
+            <h1 class="text-center">Gestione prodotti</h1>
             <h4 class="text-secondary">Admin: 3445223</h4>
         </div>
     </div>
 
-    <div class="container ">
+    <div class="container-fluid px-4">
         <div id="main" class="row justify-content-evenly">
 
             <!-- SPINNER -->
